@@ -91,20 +91,32 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'django_base/static'),
+    #os.path.join(BASE_DIR, 'django_base/static'),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Media
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR , 'django_base/media')
+MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
 
 
 # Templates
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'django_base/templates'),
+    #os.path.join(BASE_DIR, 'django_base/templates'),
+)
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    #'django.template.loaders.eggs.Loader',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
